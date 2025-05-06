@@ -9,11 +9,11 @@ import { UserService } from './user.service';
   standalone: true,
   imports: [RouterOutlet, RouterLink, FormsModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   searchTerm: string = '';
-  public userService = inject(UserService); // ✅ Make it public for template access
+  public userService = inject(UserService);
   user = computed(() => this.userService.getUserSignal()());
 
   constructor(private searchService: SearchService) {}

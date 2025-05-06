@@ -1,53 +1,57 @@
-<div class="container mt-4" style="max-width: 400px;">
-    <h2>{{ isRegistering ? 'Register' : 'Log In' }}</h2>
-  
-    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  
-    <form (ngSubmit)="onSubmit()">
-      <!-- Email -->
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          [(ngModel)]="email"
-          name="email"
-          id="email"
-          type="email"
-          class="form-control"
-          required
-        />
-      </div>
-  
-      <!-- Password -->
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          [(ngModel)]="password"
-          name="password"
-          id="password"
-          type="password"
-          class="form-control"
-          required
-        />
-      </div>
-  
-      <!-- Role selection only for registering -->
-      <div class="mb-3" *ngIf="isRegistering">
-        <label for="role" class="form-label">Role</label>
-        <select [(ngModel)]="role" name="role" id="role" class="form-control" required>
-          <option value="renter">Renter</option>
-          <option value="owner">Owner</option>
-        </select>
-      </div>
-  
-      <!-- Submit Button -->
-      <button class="btn btn-primary w-100">
-        {{ isRegistering ? 'Register' : 'Log In' }}
-      </button>
-    </form>
-  
-    <!-- Toggle -->
-    <button class="btn btn-link mt-2 w-100" (click)="toggleForm()">
-      {{ isRegistering ? 'Already have an account? Log in' : 'No account? Register here' }}
+<div class="container mt-4" style="max-width: 400px">
+  <h2>{{ isRegistering ? "Register" : "Log In" }}</h2>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        id="email"
+        type="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        id="password"
+        type="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div class="mb-3" *ngIf="isRegistering">
+      <label for="role" class="form-label">Role</label>
+      <select
+        [(ngModel)]="role"
+        name="role"
+        id="role"
+        class="form-control"
+        required
+      >
+        <option value="renter">Renter</option>
+        <option value="owner">Owner</option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary w-100">
+      {{ isRegistering ? "Register" : "Log In" }}
     </button>
-  </div>
-  
+  </form>
+
+  <button class="btn btn-link mt-2 w-100" (click)="toggleForm()">
+    {{
+      isRegistering
+        ? "Already have an account? Log in"
+        : "No account? Register here"
+    }}
+  </button>
+</div>

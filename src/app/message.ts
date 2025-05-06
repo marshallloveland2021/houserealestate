@@ -4,5 +4,5 @@ export interface Message {
   recipientId: number;
   postId: number;
   content: string;
-  timestamp: string; // ISO string
+  timestamp: string;
 }

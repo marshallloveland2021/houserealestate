@@ -6,9 +6,9 @@ export interface Post {
   price: number;
   location: string;
   imageUrl?: string;
-  bedrooms: number;   // required
-  bathrooms: number;  // required
-  sqft: number;       // required
+  bedrooms: number;
+  bathrooms: number;
+  sqft: number;
   isRental: boolean;
   verified: boolean;
   status?: 'available' | 'sold' | 'rented';

@@ -10,9 +10,14 @@ import { OwnerListingsComponent } from '../owner-listings/owner-listings.compone
 @Component({
   selector: 'app-account-owner',
   standalone: true,
-  imports: [CommonModule, OwnerMessageInboxComponent, OwnerListingsComponent, RouterModule],
+  imports: [
+    CommonModule,
+    OwnerMessageInboxComponent,
+    OwnerListingsComponent,
+    RouterModule,
+  ],
   templateUrl: './account-owner.component.html',
-  styleUrls: ['./account-owner.component.css']
+  styleUrls: ['./account-owner.component.css'],
 })
 export class AccountOwnerComponent {
   private dataService = inject(DataService);
@@ -34,6 +39,6 @@ export class AccountOwnerComponent {
 
   deletePost(postId: number) {
     this.dataService.deletePost(postId);
-    this.posts = this.posts.filter(p => p.id !== postId);
+    this.posts = this.posts.filter((p) => p.id !== postId);
   }
 }

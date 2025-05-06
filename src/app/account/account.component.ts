@@ -16,10 +16,10 @@ import { MessageInboxComponent } from '../message-inbox/message-inbox.component'
     AccountRenterComponent,
     AccountOwnerComponent,
     AccountAdminComponent,
-    MessageInboxComponent
+    MessageInboxComponent,
   ],
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
 })
 export class AccountComponent {
   public userService = inject(UserService);

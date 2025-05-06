@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './create-listing.component.html',
-  styleUrls: ['./create-listing.component.css']
+  styleUrls: ['./create-listing.component.css'],
 })
 export class CreateListingComponent {
   private dataService = inject(DataService);
@@ -26,7 +26,7 @@ export class CreateListingComponent {
     bedrooms: 1,
     bathrooms: 1,
     sqft: 500,
-    isRental: false
+    isRental: false,
   };
 
   onSubmit() {
@@ -35,19 +35,18 @@ export class CreateListingComponent {
       alert('Only verified owners can create listings.');
       return;
     }
-  
+
     const completePost = {
       ...this.newPost,
       id: Date.now(),
       userId: user.id,
       verified: false,
-      status: 'available' as 'available',  // ✅ Cast to narrow type
+      status: 'available' as 'available',
     };
-  
+
     this.dataService.addPost(completePost);
-  
+
     alert('Listing created and pending admin approval!');
     this.router.navigate(['/account']);
   }
-  
 }

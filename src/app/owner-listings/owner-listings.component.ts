@@ -9,7 +9,7 @@ import { Post } from '../post';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './owner-listings.component.html',
-  styleUrls: ['./owner-listings.component.css']
+  styleUrls: ['./owner-listings.component.css'],
 })
 export class OwnerListingsComponent {
   private dataService = inject(DataService);
@@ -20,17 +20,22 @@ export class OwnerListingsComponent {
   ngOnInit() {
     const user = this.userService.getCurrentUser();
     if (user) {
-      this.posts = this.dataService.getAllPosts().filter(post => post.userId === user.id);
+      this.posts = this.dataService
+        .getAllPosts()
+        .filter((post) => post.userId === user.id);
     }
   }
 
   updateStatus(post: Post, status: 'sold' | 'rented' | 'available') {
     post.status = status;
-    localStorage.setItem('posts', JSON.stringify(this.dataService.getAllPosts()));
+    localStorage.setItem(
+      'posts',
+      JSON.stringify(this.dataService.getAllPosts())
+    );
   }
 
   deletePost(id: number) {
     this.dataService.deletePost(id);
-    this.posts = this.posts.filter(p => p.id !== id);
+    this.posts = this.posts.filter((p) => p.id !== id);
   }
 }

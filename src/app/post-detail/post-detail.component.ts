@@ -9,7 +9,7 @@ import { Post } from '../post';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  styleUrls: ['./post-detail.component.css'],
 })
 export class PostDetailComponent {
   id = input.required<number>();

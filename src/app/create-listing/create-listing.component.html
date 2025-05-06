@@ -2,7 +2,6 @@
   <h2>Create New Listing</h2>
 
   <form (ngSubmit)="onSubmit()" #listingForm="ngForm">
-    <!-- Title -->
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
       <input
@@ -14,7 +13,6 @@
       />
     </div>
 
-    <!-- Description -->
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea
@@ -26,7 +24,6 @@
       ></textarea>
     </div>
 
-    <!-- Price -->
     <div class="mb-3">
       <label for="price" class="form-label">Price</label>
       <input
@@ -39,7 +36,6 @@
       />
     </div>
 
-    <!-- Location -->
     <div class="mb-3">
       <label for="location" class="form-label">Location</label>
       <input
@@ -51,7 +47,6 @@
       />
     </div>
 
-    <!-- Image URL -->
     <div class="mb-3">
       <label for="imageUrl" class="form-label">Image URL</label>
       <input
@@ -62,7 +57,6 @@
       />
     </div>
 
-    <!-- Bedrooms -->
     <div class="mb-3">
       <label for="bedrooms" class="form-label">Bedrooms</label>
       <select
@@ -76,7 +70,6 @@
       </select>
     </div>
 
-    <!-- Bathrooms -->
     <div class="mb-3">
       <label for="bathrooms" class="form-label">Bathrooms</label>
       <select
@@ -86,11 +79,12 @@
         name="bathrooms"
         required
       >
-        <option *ngFor="let b of [1, 1.5, 2, 2.5, 3]" [value]="b">{{ b }}</option>
+        <option *ngFor="let b of [1, 1.5, 2, 2.5, 3]" [value]="b">
+          {{ b }}
+        </option>
       </select>
     </div>
 
-    <!-- Square Feet -->
     <div class="mb-3">
       <label for="sqft" class="form-label">Square Feet</label>
       <select
@@ -100,13 +94,15 @@
         name="sqft"
         required
       >
-        <option *ngFor="let s of [500, 750, 1000, 1250, 1500, 2000, 2500]" [value]="s">
+        <option
+          *ngFor="let s of [500, 750, 1000, 1250, 1500, 2000, 2500]"
+          [value]="s"
+        >
           {{ s }} sq ft
         </option>
       </select>
     </div>
 
-    <!-- Rental or Sale -->
     <div class="mb-3">
       <label for="isRental" class="form-label">Listing Type</label>
       <select
@@ -121,7 +117,6 @@
       </select>
     </div>
 
-    <!-- Submit Button -->
     <button class="btn btn-primary" type="submit">Create Listing</button>
   </form>
 </div>

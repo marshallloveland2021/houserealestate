@@ -28,8 +28,7 @@ export const defaultPosts: Post[] = [
     bathrooms: 2,
     sqft: 1600,
     verified: true,
-    status: 'available'
-    ,
+    status: 'available',
     isRental: false,
   },
   {
@@ -44,8 +43,7 @@ export const defaultPosts: Post[] = [
     bathrooms: 4,
     sqft: 4200,
     verified: true,
-    status: 'sold'
-    ,
+    status: 'sold',
     isRental: false,
   },
   {
@@ -227,5 +225,5 @@ export const defaultPosts: Post[] = [
     verified: false,
     status: 'available',
     isRental: true,
-  }
+  },
 ];

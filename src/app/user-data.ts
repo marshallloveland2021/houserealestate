@@ -7,7 +7,7 @@ export const defaultUsers: User[] = [
     email: 'john@example.com',
     password: 'password123',
     role: 'owner',
-    verified: true
+    verified: true,
   },
   {
     id: 102,
@@ -15,7 +15,7 @@ export const defaultUsers: User[] = [
     email: 'jane@example.com',
     password: 'password123',
     role: 'renter',
-    verified: true
+    verified: true,
   },
   {
     id: 103,
@@ -23,7 +23,7 @@ export const defaultUsers: User[] = [
     email: 'admin@example.com',
     password: 'admin123',
     role: 'admin',
-    verified: true
+    verified: true,
   },
   {
     id: 104,
@@ -31,7 +31,7 @@ export const defaultUsers: User[] = [
     email: 'mike@example.com',
     password: 'password123',
     role: 'owner',
-    verified: true
+    verified: true,
   },
   {
     id: 105,
@@ -39,7 +39,7 @@ export const defaultUsers: User[] = [
     email: 'lisa@example.com',
     password: 'password123',
     role: 'renter',
-    verified: true
+    verified: true,
   },
   {
     id: 106,
@@ -47,7 +47,7 @@ export const defaultUsers: User[] = [
     email: 'uv1@example.com',
     password: 'pass123',
     role: 'owner',
-    verified: false
+    verified: false,
   },
   {
     id: 107,
@@ -55,7 +55,7 @@ export const defaultUsers: User[] = [
     email: 'uv2@example.com',
     password: 'pass123',
     role: 'owner',
-    verified: false
+    verified: false,
   },
   {
     id: 108,
@@ -63,6 +63,6 @@ export const defaultUsers: User[] = [
     email: 'uv3@example.com',
     password: 'pass123',
     role: 'renter',
-    verified: false
-  }
+    verified: false,
+  },
 ];

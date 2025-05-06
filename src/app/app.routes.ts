@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MessageComponent } from './message/message/message.component';
 import { ContactComponent } from './contact/contact.component';
 import { MessageThreadComponent } from './message-thread.component';
-import { CreateListingComponent } from './create-listing/create-listing.component'; // ✅ FIXED import
+import { CreateListingComponent } from './create-listing/create-listing.component';
 
 export const routes: Routes = [
   { path: '', component: PostListComponent },
@@ -18,6 +18,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'messages', component: MessageComponent },
   { path: 'contact/:ownerId/:postId', component: ContactComponent },
-  { path: 'messages/:otherUserId/:postId', component: MessageThreadComponent }, // ✅ FIXED comma
-  { path: 'create-listing', component: CreateListingComponent, canActivate: [authGuard] }
+  { path: 'messages/:otherUserId/:postId', component: MessageThreadComponent },
+  {
+    path: 'create-listing',
+    component: CreateListingComponent,
+    canActivate: [authGuard],
+  },
 ];

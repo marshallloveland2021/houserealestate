@@ -8,29 +8,29 @@ import { DataService } from '../data.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './account-admin.component.html',
-  styleUrls: ['./account-admin.component.css']
+  styleUrls: ['./account-admin.component.css'],
 })
 export class AccountAdminComponent {
   userService = inject(UserService);
   users = this.userService.getAllUsers();
   dataService = inject(DataService);
   posts = this.dataService.posts;
-  
+
   verifyUser(userId: number) {
     this.userService.verifyUser(userId);
-    this.users = this.userService.getAllUsers(); // refresh list
+    this.users = this.userService.getAllUsers();
   }
-  
+
   suspendUser(userId: number) {
     this.userService.suspendUser(userId);
-    this.users = this.userService.getAllUsers(); // refresh list
+    this.users = this.userService.getAllUsers();
   }
-  
+
   deleteListing(postId: number) {
     this.dataService.deletePost(postId);
-    this.posts = this.dataService.posts; // refresh list
+    this.posts = this.dataService.posts;
   }
-  
+
   confirm(message: string): boolean {
     return window.confirm(message);
   }
@@ -40,16 +40,19 @@ export class AccountAdminComponent {
     if (post) {
       post.verified = true;
       this.dataService.updatePost(post);
-      this.posts = this.dataService.posts; // refresh view
+      this.posts = this.dataService.posts;
     }
   }
 
   unverifyUser(userId: number) {
-    const user = this.userService.getAllUsers().find(u => u.id === userId);
+    const user = this.userService.getAllUsers().find((u) => u.id === userId);
     if (user) {
       user.verified = false;
-      localStorage.setItem('users', JSON.stringify(this.userService.getAllUsers()));
-      this.users = this.userService.getAllUsers(); // Refresh list
+      localStorage.setItem(
+        'users',
+        JSON.stringify(this.userService.getAllUsers())
+      );
+      this.users = this.userService.getAllUsers();
     }
   }
 
@@ -58,10 +61,7 @@ export class AccountAdminComponent {
     if (post) {
       post.verified = false;
       this.dataService.updatePost(post);
-      this.posts = this.dataService.getAllPosts(); // Refresh the table
+      this.posts = this.dataService.getAllPosts();
     }
   }
-  
-  
-  
 }

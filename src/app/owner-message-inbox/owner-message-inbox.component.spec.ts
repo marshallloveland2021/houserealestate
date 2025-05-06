@@ -8,9 +8,8 @@ describe('OwnerMessageInboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OwnerMessageInboxComponent]
-    })
-    .compileComponents();
+      imports: [OwnerMessageInboxComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OwnerMessageInboxComponent);
     component = fixture.componentInstance;

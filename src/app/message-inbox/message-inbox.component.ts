@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './message-inbox.component.html',
-  styleUrls: ['./message-inbox.component.css']
+  styleUrls: ['./message-inbox.component.css'],
 })
 export class MessageInboxComponent implements OnInit {
   private messageService = inject(MessageService);
@@ -24,14 +24,14 @@ export class MessageInboxComponent implements OnInit {
 
     if (this.currentUser) {
       this.threads = this.messageService.getThreadsForUser(this.currentUser.id);
-      console.log('📬 Threads loaded:', this.threads);
+      console.log('Threads loaded:', this.threads);
     } else {
-      console.warn('❌ No user logged in.');
+      console.warn('No user logged in.');
     }
   }
 
   openThread(thread: any) {
-    console.log('🔍 Opening thread:', thread);
+    console.log('Opening thread:', thread);
     this.router.navigate(['/messages', thread.otherUserId, thread.postId]);
   }
 }

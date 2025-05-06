@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent {
   postService = inject(DataService);
@@ -26,14 +26,17 @@ export class PostListComponent {
 
   filteredPosts = computed(() => {
     const term = this.searchService.searchTerm().toLowerCase();
-    return this.posts.filter(post =>
-      post.verified &&
-      (!term || post.title.toLowerCase().includes(term) || post.body.toLowerCase().includes(term)) &&
-      (!this.filterBedrooms || post.bedrooms >= this.filterBedrooms) &&
-      (!this.filterBathrooms || post.bathrooms >= this.filterBathrooms) &&
-      (!this.filterSqft || post.sqft >= this.filterSqft) &&
-      (!this.filterPrice || post.price <= this.filterPrice) &&
-      (!this.filterRentalOnly || post.isRental === true)
+    return this.posts.filter(
+      (post) =>
+        post.verified &&
+        (!term ||
+          post.title.toLowerCase().includes(term) ||
+          post.body.toLowerCase().includes(term)) &&
+        (!this.filterBedrooms || post.bedrooms >= this.filterBedrooms) &&
+        (!this.filterBathrooms || post.bathrooms >= this.filterBathrooms) &&
+        (!this.filterSqft || post.sqft >= this.filterSqft) &&
+        (!this.filterPrice || post.price <= this.filterPrice) &&
+        (!this.filterRentalOnly || post.isRental === true)
     );
   });
 

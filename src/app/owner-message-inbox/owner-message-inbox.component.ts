@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './owner-message-inbox.component.html',
-  styleUrls: ['./owner-message-inbox.component.css']
+  styleUrls: ['./owner-message-inbox.component.css'],
 })
 export class OwnerMessageInboxComponent implements OnInit {
   private messageService = inject(MessageService);
@@ -23,7 +23,7 @@ export class OwnerMessageInboxComponent implements OnInit {
     if (!this.currentUser) return;
 
     this.threads = this.messageService.getThreadsForOwner(this.currentUser.id);
-    console.log('📬 Owner Threads:', this.threads);
+    console.log('Owner Threads:', this.threads);
   }
 
   openThread(thread: any) {

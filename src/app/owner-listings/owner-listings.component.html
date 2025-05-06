@@ -1,13 +1,31 @@
 <div *ngFor="let post of posts" class="card mb-3">
-    <div class="card-body">
-      <h5>{{ post.title }}</h5>
-      <p>{{ post.location }} – ${{ post.price | number }}</p>
-      <p>Status: <strong>{{ post.status || 'available' }}</strong></p>
-  
-      <button class="btn btn-success btn-sm me-1" (click)="updateStatus(post, 'sold')">Mark as Sold</button>
-      <button class="btn btn-warning btn-sm me-1" (click)="updateStatus(post, 'rented')">Mark as Rented</button>
-      <button class="btn btn-secondary btn-sm me-1" (click)="updateStatus(post, 'available')">Mark as Available</button>
-      <button class="btn btn-danger btn-sm" (click)="deletePost(post.id)">Delete</button>
-    </div>
+  <div class="card-body">
+    <h5>{{ post.title }}</h5>
+    <p>{{ post.location }} - ${{ post.price | number }}</p>
+    <p>
+      Status: <strong>{{ post.status || "available" }}</strong>
+    </p>
+
+    <button
+      class="btn btn-success btn-sm me-1"
+      (click)="updateStatus(post, 'sold')"
+    >
+      Mark as Sold
+    </button>
+    <button
+      class="btn btn-warning btn-sm me-1"
+      (click)="updateStatus(post, 'rented')"
+    >
+      Mark as Rented
+    </button>
+    <button
+      class="btn btn-secondary btn-sm me-1"
+      (click)="updateStatus(post, 'available')"
+    >
+      Mark as Available
+    </button>
+    <button class="btn btn-danger btn-sm" (click)="deletePost(post.id)">
+      Delete
+    </button>
   </div>
-  
+</div>

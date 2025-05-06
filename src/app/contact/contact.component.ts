@@ -13,7 +13,7 @@ import { Post } from '../post';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
   private route = inject(ActivatedRoute);
@@ -30,20 +30,18 @@ export class ContactComponent {
   ngOnInit() {
     const ownerId = Number(this.route.snapshot.paramMap.get('ownerId'));
     const postId = Number(this.route.snapshot.paramMap.get('postId'));
-  
+
     this.currentUser = this.userService.getCurrentUser();
-  
+
     if (!this.currentUser) {
-      // Redirect to register/login with return URL
       alert('You must be logged in to send a message.');
       this.router.navigate(['/messages', this.owner.id, this.post.id]);
       return;
     }
-  
-    this.owner = this.userService.getAllUsers().find(u => u.id === ownerId)!;
+
+    this.owner = this.userService.getAllUsers().find((u) => u.id === ownerId)!;
     this.post = this.dataService.getPostById(postId)!;
   }
-  
 
   sendMessage() {
     if (!this.message.trim()) return;

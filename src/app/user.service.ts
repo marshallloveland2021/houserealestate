@@ -14,7 +14,7 @@ export class UserService {
 
     const savedId = localStorage.getItem('loggedInUserId');
     if (savedId) {
-      const user = this.users.find(u => u.id === Number(savedId));
+      const user = this.users.find((u) => u.id === Number(savedId));
       if (user) {
         this.currentUser.set(user);
       }
@@ -38,7 +38,7 @@ export class UserService {
   }
 
   loginAs(userId: number) {
-    const user = this.users.find(u => u.id === userId);
+    const user = this.users.find((u) => u.id === userId);
     if (user) {
       this.currentUser.set(user);
       localStorage.setItem('loggedInUserId', user.id.toString());
@@ -47,7 +47,8 @@ export class UserService {
 
   login(email: string, password: string): boolean {
     const user = this.users.find(
-      u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+      (u) =>
+        u.email.toLowerCase() === email.toLowerCase() && u.password === password
     );
     if (user) {
       this.currentUser.set(user);
@@ -58,7 +59,9 @@ export class UserService {
   }
 
   register(email: string, password: string, role: 'renter' | 'owner'): boolean {
-    const emailTaken = this.users.some(u => u.email.toLowerCase() === email.toLowerCase());
+    const emailTaken = this.users.some(
+      (u) => u.email.toLowerCase() === email.toLowerCase()
+    );
     if (emailTaken) return false;
 
     const newUser: User = {
@@ -67,7 +70,7 @@ export class UserService {
       email,
       password,
       role,
-      verified: role === 'owner'
+      verified: role === 'owner',
     };
 
     this.users.push(newUser);
@@ -81,27 +84,34 @@ export class UserService {
     this.currentUser.set(null);
     localStorage.removeItem('loggedInUserId');
   }
-  
-  createUser(username: string, email: string, password: string, role: 'renter' | 'owner' | 'admin'): boolean {
-    const emailTaken = this.users.some(u => u.email.toLowerCase() === email.toLowerCase());
+
+  createUser(
+    username: string,
+    email: string,
+    password: string,
+    role: 'renter' | 'owner' | 'admin'
+  ): boolean {
+    const emailTaken = this.users.some(
+      (u) => u.email.toLowerCase() === email.toLowerCase()
+    );
     if (emailTaken) return false;
-  
+
     const newUser: User = {
       id: this.nextId++,
       username,
       email,
       password,
       role,
-      verified: role === 'owner'
+      verified: role === 'owner',
     };
-  
+
     this.users.push(newUser);
     localStorage.setItem('users', JSON.stringify(this.users));
     return true;
   }
-  
+
   verifyUser(userId: number) {
-    const user = this.users.find(u => u.id === userId);
+    const user = this.users.find((u) => u.id === userId);
     if (user) {
       user.verified = true;
       localStorage.setItem('users', JSON.stringify(this.users));
@@ -109,7 +119,7 @@ export class UserService {
   }
 
   suspendUser(userId: number) {
-    this.users = this.users.filter(u => u.id !== userId);
+    this.users = this.users.filter((u) => u.id !== userId);
     localStorage.setItem('users', JSON.stringify(this.users));
 
     if (this.getCurrentUser()?.id === userId) {

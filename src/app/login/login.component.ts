@@ -9,12 +9,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   userService = inject(UserService);
   router = inject(Router);
-  route = inject(ActivatedRoute); // ✅ Get query param
+  route = inject(ActivatedRoute);
 
   email = '';
   password = '';
@@ -34,7 +34,11 @@ export class LoginComponent {
     }
 
     if (this.isRegistering) {
-      const registered = this.userService.register(this.email, this.password, this.role);
+      const registered = this.userService.register(
+        this.email,
+        this.password,
+        this.role
+      );
       if (!registered) {
         this.error = 'Email already exists.';
         return;
@@ -48,6 +52,6 @@ export class LoginComponent {
     }
 
     const returnTo = this.route.snapshot.queryParamMap.get('returnTo');
-    this.router.navigate([returnTo || '/account']); // ✅ Redirect to intended page
+    this.router.navigate([returnTo || '/account']);
   }
 }

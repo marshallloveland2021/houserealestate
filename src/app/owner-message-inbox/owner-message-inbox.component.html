@@ -1,16 +1,20 @@
 <div class="container">
-    <h4>Messages from Renters</h4>
-  
-    <div *ngFor="let thread of threads" class="card mb-3" (click)="openThread(thread)" style="cursor: pointer;">
-      <div class="card-body">
-        <h5 class="card-title">
-          {{ thread.propertyTitle }} – {{ thread.location }}
-        </h5>
-        <p class="card-text">
-          <strong>{{ thread.otherUserName }}:</strong> {{ thread.lastMessage }}
-        </p>
-        <small class="text-muted">{{ thread.timestamp | date:'short' }}</small>
-      </div>
+  <h4>Messages from Renters</h4>
+
+  <div
+    *ngFor="let thread of threads"
+    class="card mb-3"
+    (click)="openThread(thread)"
+    style="cursor: pointer"
+  >
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ thread.propertyTitle }} - {{ thread.location }}
+      </h5>
+      <p class="card-text">
+        <strong>{{ thread.otherUserName }}:</strong> {{ thread.lastMessage }}
+      </p>
+      <small class="text-muted">{{ thread.timestamp | date : "short" }}</small>
     </div>
   </div>
-  
+</div>

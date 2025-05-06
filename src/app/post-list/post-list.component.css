@@ -1,13 +1,12 @@
 .card {
-  /* height: 275px; Set a fixed height for all cards */
   min-height: 275px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distributes content evenly */
+  justify-content: space-between; 
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distributes content evenly */
+  justify-content: space-between; 
 }
