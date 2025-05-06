@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Email</label>
+      <input [(ngModel)]="email" name="email" class="form-control" required />
+    </div>
+  
+    <div class="mb-3">
+      <label>Password</label>
+      <input [(ngModel)]="password" name="password" class="form-control" type="password" required />
+    </div>
+  
+    <div class="mb-3">
+      <label>Role</label>
+      <select [(ngModel)]="role" name="role" class="form-control">
+        <option value="renter">Renter</option>
+        <option value="owner">Owner</option>
+      </select>
+    </div>
+  
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+    <button class="btn btn-primary">Register</button>
+  </form>
+  

@@ -1,0 +1,68 @@
+import { User } from './user';
+
+export const defaultUsers: User[] = [
+  {
+    id: 101,
+    username: 'john_doe',
+    email: 'john@example.com',
+    password: 'password123',
+    role: 'owner',
+    verified: true
+  },
+  {
+    id: 102,
+    username: 'jane_renter',
+    email: 'jane@example.com',
+    password: 'password123',
+    role: 'renter',
+    verified: true
+  },
+  {
+    id: 103,
+    username: 'admin_user',
+    email: 'admin@example.com',
+    password: 'admin123',
+    role: 'admin',
+    verified: true
+  },
+  {
+    id: 104,
+    username: 'mike_owner',
+    email: 'mike@example.com',
+    password: 'password123',
+    role: 'owner',
+    verified: true
+  },
+  {
+    id: 105,
+    username: 'lisa_renter',
+    email: 'lisa@example.com',
+    password: 'password123',
+    role: 'renter',
+    verified: true
+  },
+  {
+    id: 106,
+    username: 'unverified1',
+    email: 'uv1@example.com',
+    password: 'pass123',
+    role: 'owner',
+    verified: false
+  },
+  {
+    id: 107,
+    username: 'unverified2',
+    email: 'uv2@example.com',
+    password: 'pass123',
+    role: 'owner',
+    verified: false
+  },
+  {
+    id: 108,
+    username: 'unverified3',
+    email: 'uv3@example.com',
+    password: 'pass123',
+    role: 'renter',
+    verified: false
+  }
+];

@@ -1,0 +1,85 @@
+<h3>Admin Dashboard</h3>
+
+<!-- USERS TABLE -->
+<h4>Registered Users</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Verified</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <span *ngIf="user.verified">✅</span>
+        <span *ngIf="!user.verified">❌</span>
+      </td>
+      <td>
+        <button *ngIf="!user.verified"
+                class="btn btn-sm btn-outline-success me-1"
+                (click)="verifyUser(user.id)">
+          ✅ Verify
+        </button>
+        <button *ngIf="user.verified"
+                class="btn btn-sm btn-outline-secondary me-1"
+                (click)="confirm('Unverify this user?') && unverifyUser(user.id)">
+          🚫 Unverify
+        </button>
+        <button class="btn btn-sm btn-outline-warning"
+                (click)="confirm('Suspend this user?') && suspendUser(user.id)">
+          Suspend
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- LISTINGS TABLE -->
+<h4 class="mt-5">Listings</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>User ID</th>
+      <th>Verified</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.userId }}</td>
+      <td>
+        <span *ngIf="post.verified">✅</span>
+        <span *ngIf="!post.verified">❌</span>
+      </td>
+      <td>
+        <button *ngIf="!post.verified"
+                class="btn btn-sm btn-outline-success me-1"
+                (click)="verifyPost(post.id)">
+          ✅ Verify
+        </button>
+        <button *ngIf="post.verified"
+                class="btn btn-sm btn-outline-secondary me-1"
+                (click)="confirm('Unverify this listing?') && unverifyPost(post.id)">
+          🚫 Unverify
+        </button>
+        <button class="btn btn-sm btn-outline-danger"
+                (click)="confirm('Delete this listing?') && deleteListing(post.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

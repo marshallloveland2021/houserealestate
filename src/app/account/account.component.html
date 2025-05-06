@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Welcome, {{ user()?.username }}</h2>
+      <button class="btn btn-outline-danger" (click)="logout()">Log Out</button>
+    </div>
+  
+    <p>Email: {{ user()?.email }}</p>
+    <p>Role: {{ user()?.role }}</p>
+  
+    <div *ngIf="user()?.role === 'renter'">
+      <h3>Message History</h3>
+      <app-message-inbox></app-message-inbox>
+    </div>
+    
+    <div *ngIf="user()?.role === 'owner'">
+      <app-account-owner></app-account-owner>
+    </div>
+    <div *ngIf="user()?.role === 'admin'">
+      <app-account-admin></app-account-admin>
+    </div>
+  </div>
+  

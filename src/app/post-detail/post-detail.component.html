@@ -1,0 +1,25 @@
+<div class="container my-3" *ngIf="post; else notFound">
+  <div class="card p-4">
+    <h3>{{ post.title }}</h3>
+    <p><strong>Location:</strong> {{ post.location }}</p>
+    <p><strong>Price:</strong> ${{ post.price | number }}</p>
+    <p><strong>Description:</strong> {{ post.body }}</p>
+    <img *ngIf="post.imageUrl" [src]="post.imageUrl" class="img-fluid mt-3" alt="Property image">
+    <br>
+    <a
+  class="btn btn-outline-primary mt-3"
+  [routerLink]="['/contact', post.userId, post.id]"
+>
+  Contact Owner
+</a>
+    <a [routerLink]="['/']" class="btn btn-outline-secondary mt-3">← Back to Listings</a>
+  </div>
+</div>
+
+
+
+
+<ng-template #notFound>
+  <p class="text-danger">⚠️ Post not found.</p>
+  <a [routerLink]="['/']" class="btn btn-outline-secondary">← Back to Listings</a>
+</ng-template>

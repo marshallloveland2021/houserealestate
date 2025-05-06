@@ -1,0 +1,15 @@
+<div class="container mt-4">
+    <h2>Your Message Threads</h2>
+    <ul class="list-group">
+      <div *ngFor="let thread of threads" class="card mb-3" (click)="openThread(thread)">
+        <div class="card-body">
+          <h5 class="card-title">{{ thread.propertyTitle }}</h5>
+          <p class="card-text">
+            <strong>{{ thread.otherUserName }}:</strong> {{ thread.lastMessage }}
+          </p>
+          <small class="text-muted">{{ thread.timestamp | date:'short' }}</small>
+        </div>
+      </div>
+    </ul>
+  </div>
+  
